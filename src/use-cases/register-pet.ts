@@ -1,4 +1,4 @@
-import { PrismaPetsRepository } from '@/repositories/prisma-pets-repository'
+import { PetsRepository } from '@/repositories/pets-repository'
 
 interface RegisterPetUseCaseRequest {
   name: string
@@ -7,18 +7,15 @@ interface RegisterPetUseCaseRequest {
   city: string
 }
 
-export async function registerPetUseCase({
-  name,
-  age,
-  breed,
-  city,
-}: RegisterPetUseCaseRequest) {
-  const petsRepository = new PrismaPetsRepository()
+export class RegisterPetUseCase {
+  constructor(private petsRepository: PetsRepository) {}
 
-  await petsRepository.create({
-    name,
-    age,
-    breed,
-    city,
-  })
+  async execute({ name, age, breed, city }: RegisterPetUseCaseRequest) {
+    await this.petsRepository.create({
+      name,
+      age,
+      breed,
+      city,
+    })
+  }
 }
