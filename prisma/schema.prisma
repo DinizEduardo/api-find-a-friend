@@ -20,6 +20,9 @@ model Pet {
   created_at DateTime  @default(now())
   Traits     Trait[]
 
+  org    ORG    @relation(fields: [org_id], references: [id])
+  org_id String
+
   @@map("pets")
 }
 
@@ -39,6 +42,7 @@ model ORG {
   address       String
   whatsapp      String @unique
   password_hash String
+  Pet           Pet[]
 
   @@map("ORGs")
 }

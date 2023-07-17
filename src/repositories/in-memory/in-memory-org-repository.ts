@@ -5,6 +5,16 @@ import { OrgsRepository } from '../org-repository'
 export class InMemoryOrgRepository implements OrgsRepository {
   public items: ORG[] = []
 
+  async findById(id: string) {
+    const org = this.items.find((item) => item.id === id)
+
+    if (!org) {
+      return null
+    }
+
+    return org
+  }
+
   async create(data: Prisma.ORGCreateInput) {
     const org = {
       id: randomUUID(),
