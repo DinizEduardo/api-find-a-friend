@@ -5,6 +5,12 @@ import { PetsRepository } from '../pets-repository'
 export class InMemoryPetRepository implements PetsRepository {
   private items: Pet[] = []
 
+  async fetchPetsByCity(city: string) {
+    const pets = this.items.filter((item) => item.city === city)
+
+    return pets
+  }
+
   async create(data: Prisma.PetUncheckedCreateInput) {
     const pet = {
       id: randomUUID(),
