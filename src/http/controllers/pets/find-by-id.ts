@@ -18,5 +18,5 @@ export async function findPetById(
 
   const { pet } = await useCase.execute({ id: petId })
 
-  return reply.status(201).send({ pet })
+  return reply.status(200).send({ pet })
 }

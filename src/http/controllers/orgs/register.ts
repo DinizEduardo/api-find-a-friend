@@ -21,21 +21,12 @@ export async function registerOrg(
   const orgsRepository = new PrismaOrgRepository()
   const authenticateUseCase = new RegisterOrgUseCase(orgsRepository)
 
-  const { org } = await authenticateUseCase.execute({
+  await authenticateUseCase.execute({
     name,
     address,
     whatsapp,
     password,
   })
 
-  const token = await reply.jwtSign(
-    {},
-    {
-      sign: {
-        sub: org.id,
-      },
-    },
-  )
-
-  return reply.status(201).send({ token })
+  return reply.status(201).send()
 }

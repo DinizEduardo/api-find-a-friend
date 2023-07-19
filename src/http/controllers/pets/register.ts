@@ -1,3 +1,4 @@
+import { PrismaOrgRepository } from '@/repositories/prisma/prisma-org-repository'
 import { PrismaPetsRepository } from '@/repositories/prisma/prisma-pets-repository'
 import { RegisterPetUseCase } from '@/use-cases/register-pet'
 import { FastifyReply, FastifyRequest } from 'fastify'
@@ -17,9 +18,16 @@ export async function registerPet(
   const { name, age, breed, city } = registerBodySchema.parse(request.body)
 
   const repository = new PrismaPetsRepository()
-  const useCase = new RegisterPetUseCase(repository)
+  const orgsRepository = new PrismaOrgRepository()
+  const useCase = new RegisterPetUseCase(repository, orgsRepository)
 
-  await useCase.execute({ name, age, breed, city })
+  await useCase.execute({
+    name,
+    age,
+    breed,
+    city,
+    orgId: request.user.sub,
+  })
 
   return reply.status(201).send()
 }
