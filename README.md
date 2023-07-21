@@ -17,9 +17,8 @@ A API possui as seguintes regras:
 
 A API segue as seguintes regras de negócio:
 
-- **Listagem de Pets**: Para listar os pets, é obrigatório informar a cidade em que deseja buscar os pets disponíveis para adoção.
-- **Cadastro de ORG**: Uma organização (ORG) precisa fornecer um endereço e um número de WhatsApp para realizar o cadastro.
-- **Vínculo entre Pet e ORG**: Cada pet cadastrado está ligado a uma organização.
-- **Contato entre Usuário e ORG**: Um usuário interessado em adotar um pet pode entrar em contato com a organização responsável através do número de WhatsApp fornecido.
-- **Filtros Opcionais**: Todos os filtros, exceto a cidade, são opcionais na busca por pets.
-- **Acesso de ORG como Admin**: Para uma organização acessar a aplicação como administradora, é necessário realizar o login.
+- [x] - **Listagem de Pets**: Para listar os pets, é obrigatório informar a cidade em que deseja buscar os pets disponíveis para adoção.
+- [x] - **Cadastro de ORG**: Uma organização (ORG) precisa fornecer um endereço e um número de WhatsApp para realizar o cadastro.
+- [x] - **Vínculo entre Pet e ORG**: Cada pet cadastrado está ligado a uma organização.
+- [] - **Filtros Opcionais**: Todos os filtros, exceto a cidade, são opcionais na busca por pets.
+- [x] - **Acesso de ORG como Admin**: Para uma organização acessar a aplicação como administradora, é necessário realizar o login.
