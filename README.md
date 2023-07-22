@@ -1,4 +1,4 @@
-# API de Adoção de Pets
+# API de Adoção de Pets - Ignite
 
 Esta é uma API para adoção de pets, desenvolvida com Node.js e TypeScript. Ela permite cadastrar pets, listar pets disponíveis para adoção em uma cidade específica, filtrar pets por características, visualizar detalhes de um pet e realizar o cadastro e login como uma organização (ORG).
 
